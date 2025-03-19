@@ -4,8 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:nineties_connect/features/authentication/presentation/pages/authentication_page.dart';
 import 'package:nineties_connect/features/authentication/presentation/pages/signup_page.dart';
 import 'package:nineties_connect/features/home/presentation/pages/home_page.dart';
+// import 'package:nineties_connect/features/logout/presentation/pages/logout_dialog.dart';
 import 'package:nineties_connect/features/main/presentation/pages/main_screen.dart';
-
+import 'package:nineties_connect/features/notifications/presentation/pages/notification_page.dart';
 import 'package:nineties_connect/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:nineties_connect/features/onboarding/presentation/pages/onboarding_page.dart';
 
@@ -54,5 +55,10 @@ final GoRouter _router = GoRouter(
       path: '/main',
       builder: (context, state) => const MainScreen(),
     ),
+    GoRoute(
+      path: '/notification',
+      builder: (context, state) => const NotificationPage(),
+    ),  
+    
   ],
 );

@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -71,10 +72,15 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   // Bell Icon Avatar
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 18,
-                    child: Icon(Icons.notifications, color: Colors.white),
+                  GestureDetector(
+                    onTap: () {
+                      context.go('/notification');
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black,
+                      radius: 18,
+                      child: Icon(Icons.notifications, color: Colors.white),
+                    ),
                   ),
                 ],
               ),

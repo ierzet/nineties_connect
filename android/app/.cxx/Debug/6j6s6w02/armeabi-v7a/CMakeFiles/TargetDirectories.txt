@@ -1,0 +1,2 @@
+/home/aditya/Documents/app90s/nineties_connect/android/app/.cxx/Debug/6j6s6w02/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/aditya/Documents/app90s/nineties_connect/android/app/.cxx/Debug/6j6s6w02/armeabi-v7a/CMakeFiles/rebuild_cache.dir
