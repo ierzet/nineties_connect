@@ -6,11 +6,7 @@ GoRouter createRouter() {
     routes: [
       GoRoute(
         path: '/onboarding',
-        builder:
-            (context, state) => BlocProvider(
-              create: (_) => OnboardingCubit(),
-              child: const OnBoardingPage(),
-            ),
+        builder: (context, state) => const OnBoardingPage(),
       ),
       GoRoute(
         path: '/auth',

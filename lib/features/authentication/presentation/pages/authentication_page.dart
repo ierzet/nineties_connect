@@ -37,7 +37,7 @@ class AuthenticationPage extends StatelessWidget {
             ),
             // Background SVG Positioned at Bottom-Right
             Positioned(
-              right: -50, // Menggeser gambar sedikit ke kanan
+              right: 0, // Menggeser gambar sedikit ke kanan
               bottom: 0,
               child: SvgPicture.asset(
                 'assets/svgs/authentication_maskot.svg',
@@ -109,7 +109,11 @@ class AuthenticationPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(999),
                             ),
                           ),
-                          icon: const Icon(Icons.face, color: Colors.black),
+                          icon: SvgPicture.asset(
+                            'assets/svgs/biometric.svg',
+                            width: 24,
+                            height: 24,
+                          ),
                           label: const Text(
                             'Sign in',
                             style: TextStyle(
