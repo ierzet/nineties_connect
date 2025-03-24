@@ -1,5 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -71,10 +73,15 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   // Bell Icon Avatar
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 18,
-                    child: Icon(Icons.notifications, color: Colors.white),
+                  GestureDetector(
+                    onTap: () {
+                      context.go('/notification');
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black,
+                      radius: 18,
+                      child: Icon(Icons.notifications, color: Colors.white),
+                    ),
                   ),
                 ],
               ),
@@ -98,11 +105,59 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16), // Smooth rounded corners
-              child: Image.asset(
-                'assets/images/car.png', // Replace with actual image
-                width: double.infinity,
-                height: 150,
-                fit: BoxFit.cover,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/images/car.png', // Replace with actual image
+                    width: double.infinity,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      color: Colors.black.withOpacity(0.5),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // 🔵 Status Active dengan Icon
+                          Row(
+                            children: [
+                              Icon(Icons.circle, color: Colors.green, size: 12),
+                              SizedBox(width: 5),
+                              Text(
+                                "Active",
+                                style: TextStyle(color: Colors.white, fontSize: 14),
+                              ),
+                            ],
+                          ),
+                          // 🚗 Informasi Kendaraan
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "BMW e36 / 323i",
+                                style: TextStyle(color: Colors.white, fontSize: 12),
+                              ),
+                              Text(
+                                "F 323 EM",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  
+                ],
               ),
             ),
           ),
@@ -133,9 +188,75 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      featureItem(Icons.place, 'Outlet Location'),
-                      featureItem(Icons.shopping_bag, 'Marketplace'),
-                      featureItem(Icons.touch_app, 'Booking Service'),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/outlet-location');
+                        },
+                        child: Column(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/svgs/outlet.svg',
+                              height: 53,
+                              width: 73,
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Outlet Location',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/maintenance');
+                        },
+                        child: Column(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/svgs/marketplace.svg',
+                              width: 47,
+                              height: 70,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Marketplace',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/maintenance');
+                        },
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 8),
+                            SvgPicture.asset(
+                              'assets/svgs/booking.svg',
+                              width: 62.12,
+                              height: 68.04,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Booking Service',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 24), // Increased spacing for balance
@@ -143,8 +264,8 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(21),
                     child: Image.asset(
                       'assets/images/banner-ads.png', // Change to actual image path
-                      width: 317,
-                      height: 136,
+                      width: 420,
+                      height: 200,
                       fit: BoxFit.cover,
                     ),
                   ),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nineties_connect/features/activity/presentation/pages/%20activity_screen.dart';
 import 'package:nineties_connect/features/home/presentation/pages/home_page.dart';
+import 'package:nineties_connect/features/account/presentation/pages/profile_screen.dart';
+import 'package:nineties_connect/features/membership/presentation/pages/membership_screen.dart';
+
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -17,12 +21,12 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const HomeScreen(),
     const MembershipScreen(),
-    const ActivityScreen(),
-    const MyAccountScreen(),
+    const ActivityScreen(), // Pastikan ActivityScreen ada di sini
+    const ProfileScreen(), // Ganti MyAccountScreen dengan ProfileScreen
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
+    setState(() {   
       _selectedIndex = index;
     });
   }
@@ -56,53 +60,35 @@ class _MainScreenState extends State<MainScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings, color: Colors.white),
-            onPressed: () {
-              // TODO: Navigate to settings page
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
-            onPressed: () => context.go('/auth'),
+            icon: const Icon(Icons.logout, color: Colors.white, size: 30), 
+            onPressed: () => context.go('/logout'),
           ),
         ],
       ),
 
       body: _pages[_selectedIndex], // Display the selected page
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.black54,
-          backgroundColor: Color(0xFFFFDD00),
-          type: BottomNavigationBarType.fixed,
-          items: [
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.home),
-            //   label: 'Home',
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.card_membership),
-            //   label: 'Membership',
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.local_activity),
-            //   label: 'Activity',
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.person),
-            //   label: 'My Account',
-            // ),
-            _buildNavBarItem(Icons.home, 'Home', 0),
-            _buildNavBarItem(Icons.search, 'Membership', 1),
-            _buildNavBarItem(Icons.person, 'Activity', 2),
-            _buildNavBarItem(Icons.home, 'My Account', 3),
-          ],
+      bottomNavigationBar: Container(
+        width: 375,
+        height: 120,
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            selectedItemColor: Colors.black,
+            unselectedItemColor: Colors.black54,
+            backgroundColor: Color(0xFFFFDD00),
+            type: BottomNavigationBarType.fixed,
+            items: [
+              _buildNavBarItem(Icons.home, 'Home', 0),
+              _buildNavBarItem(Icons.search, 'Membership', 1),
+              _buildNavBarItem(Icons.local_activity, 'Activity', 2), // Ubah ikon untuk Activity
+              _buildNavBarItem(Icons.person, 'My Account', 3),
+            ],
+          ),
         ),
       ),
     );
@@ -117,14 +103,13 @@ class _MainScreenState extends State<MainScreen> {
           if (_selectedIndex == index) // Show indicator if selected
             Positioned(
               top: 0,
-              //bottom: 0,
               child: Container(
-                width: 34,
+                width: 37,
                 height: 5,
                 decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.all(Radius.circular(100)),
-                ),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                  ),
               ),
             ),
           Padding(
@@ -138,32 +123,3 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-class MembershipScreen extends StatelessWidget {
-  const MembershipScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-        child: Text('Membership Screen', style: TextStyle(fontSize: 20)));
-  }
-}
-
-class ActivityScreen extends StatelessWidget {
-  const ActivityScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-        child: Text('Activity Screen', style: TextStyle(fontSize: 20)));
-  }
-}
-
-class MyAccountScreen extends StatelessWidget {
-  const MyAccountScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-        child: Text('My Account Screen', style: TextStyle(fontSize: 20)));
-  }
-}

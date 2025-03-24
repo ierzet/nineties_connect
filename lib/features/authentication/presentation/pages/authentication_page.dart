@@ -24,17 +24,37 @@ class AuthenticationPage extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
         ),
+        
         backgroundColor: Colors.black,
         body: Stack(
           children: [
+            // Background Circle
+            Positioned(
+              top: -200,
+              right: -400,
+              child: Container(
+                width: 820,
+                height: 820,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: RadialGradient(
+                    colors: [
+                      Color(0xFFFFDD00).withOpacity(0.5), // Meningkatkan opacity dari 0.3 ke 0.5
+                      Colors.transparent,
+                    ],
+                    stops: [0.0, 1.0],
+                  ),
+                ),
+              ),
+            ),
             // Background SVG Positioned at Bottom-Right
             Positioned(
-              right: 0,
+              right: -80, // Menggeser gambar sedikit ke kanan
               bottom: 0,
               child: SvgPicture.asset(
                 'assets/svgs/Maskot 90s.svg',
-                width: 200, // Adjust width as needed
-                height: 200, // Adjust height as needed
+                width: 418, // Adjust width as needed
+                height: 290, // Adjust height as needed
               ),
             ),
             SafeArea(
@@ -130,7 +150,7 @@ class AuthenticationPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(30),
                             ),
                           ),
                           icon: const FaIcon(FontAwesomeIcons.google,
@@ -154,7 +174,7 @@ class AuthenticationPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(30),
                             ),
                           ),
                           icon: const FaIcon(FontAwesomeIcons.facebook,
