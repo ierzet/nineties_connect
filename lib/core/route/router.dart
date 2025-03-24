@@ -1,16 +1,4 @@
-
-
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:nineties_connect/features/account/presentation/pages/profile_screen.dart';
-import 'package:nineties_connect/features/account_payment/presentation/bloc/payment_bloc.dart';
-import 'package:nineties_connect/features/account_payment/presentation/pages/payment_screen.dart';
-import 'package:nineties_connect/features/authentication/presentation/pages/authentication_page.dart';
-import 'package:nineties_connect/features/gallery/presentation/pages/gallery_screen.dart';
-import 'package:nineties_connect/features/home/presentation/pages/home_page.dart';
-import 'package:nineties_connect/features/membership/presentation/pages/membership_screen.dart';
-import 'package:nineties_connect/features/onboarding/presentation/cubit/onboarding_cubit.dart';
-import 'package:nineties_connect/features/onboarding/presentation/pages/onboarding_page.dart';
+import 'view.dart';
 
 GoRouter createRouter() {
   return GoRouter(
@@ -18,34 +6,96 @@ GoRouter createRouter() {
     routes: [
       GoRoute(
         path: '/onboarding',
-        builder: (context, state) => BlocProvider(
-          create: (_) => OnboardingCubit(),
-          child: const OnBoardingPage(),
-        ),
+        builder:
+            (context, state) => BlocProvider(
+              create: (_) => OnboardingCubit(),
+              child: const OnBoardingPage(),
+            ),
       ),
       GoRoute(
         path: '/auth',
         builder: (context, state) => const AuthenticationPage(),
       ),
+      GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
+      GoRoute(path: '/signup', builder: (context, state) => const SignUpPage()),
+      GoRoute(path: '/main', builder: (context, state) => const MainScreen()),
       GoRoute(
-        path: '/home',
-        builder: (context, state) => const HomeScreen(),
+        path: '/notification',
+        builder: (context, state) => const NotificationPage(),
       ),
+      GoRoute(
+        path: '/logout',
+        builder: (context, state) => const LogoutDialog(),
+      ),
+
+      // Activity
+      GoRoute(
+        path: '/activity',
+        builder: (context, state) => const ActivityScreen(),
+      ),
+      GoRoute(
+        path: '/detail',
+        builder: (context, state) => const DetailScreen(),
+      ),
+
+      // Account
       GoRoute(
         path: '/profile',
         builder: (context, state) => const ProfileScreen(),
       ),
+
+      GoRoute(path: '/faq', builder: (context, state) => const FAQScreen()),
       GoRoute(
         path: '/payment',
-        builder: (context, state) => BlocProvider(
-          create: (context) => PaymentBloc(),
-          child: const PaymentScreen(),
-        ),
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => PaymentBloc(),
+              child: const PaymentScreen(),
+            ),
       ),
+      GoRoute(
+        path: '/about',
+        builder:
+            (context, state) => BlocProvider(
+              create: (_) => AboutCubit(),
+              child: const AboutScreen(),
+            ),
+      ),
+
+      // Maintenance
+      GoRoute(
+        path: '/maintenance',
+        builder: (context, state) => const MaintenanceScreen(),
+      ),
+
+      // Outlet Location
+      GoRoute(
+        path: '/outlet-location',
+        builder: (context, state) => OutletLocationScreen(),
+      ),
+
+      // Membership
       GoRoute(
         path: '/membership',
         builder: (context, state) => const MembershipScreen(),
       ),
+      GoRoute(
+        path: '/vehicle-info',
+        builder: (context, state) => const VehicleInfoScreen(),
+      ),
+      GoRoute(
+        path: '/membership-info',
+        builder: (context, state) => const MembershipInfoScreen(),
+      ),
+      GoRoute(
+        path: '/vehicle-type',
+        builder: (context, state) => const VehicleTypeScreen(),
+      ),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const VehicleInfoScreen(),
+      ),
+
       GoRoute(
         path: '/gallery',
         builder: (context, state) => const GalleryScreen(),
