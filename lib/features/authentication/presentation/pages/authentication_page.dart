@@ -11,20 +11,6 @@ class AuthenticationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Sign In',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-          backgroundColor: Colors.black,
-          centerTitle: true,
-          elevation: 0,
-        ),
-        
         backgroundColor: Colors.black,
         body: Stack(
           children: [
@@ -39,7 +25,9 @@ class AuthenticationPage extends StatelessWidget {
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      Color(0xFFFFDD00).withOpacity(0.5), // Meningkatkan opacity dari 0.3 ke 0.5
+                      Color(0xFFFFDD00).withOpacity(
+                        0.5,
+                      ), // Meningkatkan opacity dari 0.3 ke 0.5
                       Colors.transparent,
                     ],
                     stops: [0.0, 1.0],
@@ -49,10 +37,10 @@ class AuthenticationPage extends StatelessWidget {
             ),
             // Background SVG Positioned at Bottom-Right
             Positioned(
-              right: -80, // Menggeser gambar sedikit ke kanan
+              right: -50, // Menggeser gambar sedikit ke kanan
               bottom: 0,
               child: SvgPicture.asset(
-                'assets/svgs/Maskot 90s.svg',
+                'assets/svgs/authentication_maskot.svg',
                 width: 418, // Adjust width as needed
                 height: 290, // Adjust height as needed
               ),
@@ -64,6 +52,15 @@ class AuthenticationPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      const SizedBox(height: 48),
+                      Text(
+                        'Sign In',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                       const SizedBox(height: 48),
 
                       // Email Input Field
@@ -153,13 +150,16 @@ class AuthenticationPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(30),
                             ),
                           ),
-                          icon: const FaIcon(FontAwesomeIcons.google,
-                              color: Colors.black),
+                          icon: const FaIcon(
+                            FontAwesomeIcons.google,
+                            color: Colors.black,
+                          ),
                           label: const Text(
                             'Sign in with Google',
                             style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -177,13 +177,16 @@ class AuthenticationPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(30),
                             ),
                           ),
-                          icon: const FaIcon(FontAwesomeIcons.facebook,
-                              color: Colors.blue),
+                          icon: const FaIcon(
+                            FontAwesomeIcons.facebook,
+                            color: Colors.blue,
+                          ),
                           label: const Text(
                             'Sign in with Facebook',
                             style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -212,11 +215,13 @@ class AuthenticationPage extends StatelessWidget {
                                   color: Color(0xFFFFDD00),
                                   fontWeight: FontWeight.bold,
                                 ),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    context.push(
-                                        '/signup'); // Navigate to the signup page
-                                  },
+                                recognizer:
+                                    TapGestureRecognizer()
+                                      ..onTap = () {
+                                        context.push(
+                                          '/signup',
+                                        ); // Navigate to the signup page
+                                      },
                               ),
                             ],
                           ),
