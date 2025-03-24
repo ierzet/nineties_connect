@@ -28,27 +28,24 @@ class OnBoardingPage extends StatelessWidget {
                 title: 'Selamat Datang di\n 90s Super App',
                 subtitle:
                     'Rasakan kemudahan merawat\n kendaraan dalam satu genggaman',
-                svgPath: 'assets/svgs/nineties-thunder.svg',
+                svgPath: 'assets/svgs/on_boarding_page_1.svg',
               ),
               OnboardingPageView(
                 page: 1,
                 title: 'Cuci Sepuasnya\n dengan Membership',
                 subtitle: 'Daftrakan kendaraanmu agar selalu\n terlindungi',
-                svgPath: 'assets/svgs/membercard.svg',
+                svgPath: 'assets/svgs/on_boarding_page_2.svg',
               ),
               OnboardingPageView(
                 page: 2,
                 title: 'Jadilah yang Pertama',
                 subtitle:
                     'Aplikasi otomotif pertama untuk\n pelanggan 90s Autoworks',
-                svgPath: 'assets/svgs/Maskot 90s.svg',
+                svgPath: 'assets/svgs/on_boarding_page_3.svg',
               ),
             ],
           ),
-          Positioned(
-            bottom: 235,
-            child: OnBoardingThreeDots(),
-          ),
+          Positioned(bottom: 235, child: OnBoardingThreeDots()),
           Positioned(
             bottom: 175,
             child: OnBoardingButton(pageController: pageController),
