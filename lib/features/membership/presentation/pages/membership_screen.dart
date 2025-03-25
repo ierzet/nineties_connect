@@ -53,7 +53,7 @@ class MembershipView extends StatelessWidget {
             ),
             Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 10),
                 _buildHeader(context),
                 const SizedBox(height: 20),
                 SizedBox(
@@ -86,7 +86,7 @@ class MembershipView extends StatelessWidget {
                     child: Column(
                       children: [
                         _buildTabBar(),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 5),
                         Expanded(
                           child: TabBarView(
                             children: [

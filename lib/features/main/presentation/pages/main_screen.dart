@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nineties_connect/features/activity/presentation/pages/%20activity_screen.dart';
 import 'package:nineties_connect/features/home/presentation/pages/home_page.dart';
 import 'package:nineties_connect/features/account/presentation/pages/profile_screen.dart';
+import 'package:nineties_connect/features/logout/presentation/pages/logout_dialog.dart';
 import 'package:nineties_connect/features/membership/presentation/pages/membership_screen.dart';
 
 
@@ -61,7 +62,9 @@ class _MainScreenState extends State<MainScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.white, size: 30), 
-            onPressed: () => context.go('/logout'),
+            onPressed: () {
+              LogoutDialog.show(context);
+            },
           ),
         ],
       ),

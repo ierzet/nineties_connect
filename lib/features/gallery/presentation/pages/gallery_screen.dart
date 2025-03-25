@@ -37,6 +37,7 @@ class GalleryScreen extends StatelessWidget {
               const SizedBox(height: 20),
               Row(
                 children: [
+                  const SizedBox(width: 10),
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,

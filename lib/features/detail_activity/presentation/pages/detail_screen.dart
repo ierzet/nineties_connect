@@ -48,9 +48,10 @@ class DetailScreen extends StatelessWidget {
               ),
               Column(
                 children: [
-                  const SizedBox(height: 70),
+                  const SizedBox(height: 40),
                   Row(
                     children: [
+                      const SizedBox(width: 10), // Menambahkan jarak ke kanan
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
@@ -59,8 +60,8 @@ class DetailScreen extends StatelessWidget {
                         child: IconButton(
                           icon: const Icon(Icons.arrow_back, color: Colors.white),
                           onPressed: () {
-                          context.go('/main');
-                        },
+                            context.go('/main');
+                          },
                         ),
                       ),
                       const SizedBox(width: 14),
@@ -75,7 +76,7 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 10),
                 ],
               ),
               Align(
@@ -83,7 +84,7 @@ class DetailScreen extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(30),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.85,
+                  height: MediaQuery.of(context).size.height * 0.88,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -152,7 +153,7 @@ class DetailScreen extends StatelessWidget {
                         }, // Mengarah ke main
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFFFFDD00),
-                              padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 18),
+                              padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 18),
                             ),
                             child: const Text('Done', style: TextStyle(fontFamily: 'Montserrat', color: Colors.black)), // Mengubah teks menjadi 'Selesai'
                           ),
