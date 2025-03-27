@@ -109,8 +109,8 @@ class ProfileScreen extends StatelessWidget {
                                     style: const TextStyle(fontFamily: 'Montserrat'),
                                   ),
                                 ),
-                                const SizedBox(height: 20),
-                                Transform.translate(
+                                const SizedBox(height: 60),
+                              Transform.translate(
                                   offset: const Offset(0, -100),
                                   child: Column(
                                     children: [
@@ -119,9 +119,9 @@ class ProfileScreen extends StatelessWidget {
                                           "Personal Information",
                                           style: TextStyle(fontFamily: 'Montserrat'),
                                         ),
-                                        trailing: const Icon(Icons.settings),
+                                        trailing: const Icon(Icons.person),
                                         onTap: () {
-                                          context.go('/user');
+                                          context.go('/personal-info'); // Mengarahkan ke halaman pembayaran
                                         },
                                       ),
                                       const Divider(color: Colors.black), // Garis hitam di bawah title

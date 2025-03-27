@@ -23,3 +23,7 @@ export 'package:nineties_connect/features/onboarding/presentation/cubit/onboardi
 export 'package:nineties_connect/features/onboarding/presentation/pages/onboarding_page.dart';
 export 'package:nineties_connect/features/outlet_location/presentation/pages/outlet_location_screen.dart';
 export 'package:nineties_connect/features/vehicle_type/presentation/pages/vehicle_type_screen.dart';
+export 'package:nineties_connect/features/welcome_screen/presentation/cubit/welcome_cubit.dart';
+export 'package:nineties_connect/features/welcome_screen/presentation/pages/welcome_screen.dart';
+export 'package:nineties_connect/features/account_Info/presentation/pages/personal_info_screen.dart';
+export 'package:nineties_connect/features/account_Info/presentation/cubit/personal_info_cubit.dart';

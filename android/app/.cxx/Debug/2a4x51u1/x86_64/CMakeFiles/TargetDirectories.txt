@@ -1,0 +1,2 @@
+/home/dyztra/Documents/project90s/nineties_connect/android/app/.cxx/Debug/2a4x51u1/x86_64/CMakeFiles/edit_cache.dir
+/home/dyztra/Documents/project90s/nineties_connect/android/app/.cxx/Debug/2a4x51u1/x86_64/CMakeFiles/rebuild_cache.dir

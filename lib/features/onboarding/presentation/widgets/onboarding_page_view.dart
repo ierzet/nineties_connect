@@ -5,14 +5,14 @@ class OnboardingPageView extends StatelessWidget {
   final int page;
   final String title;
   final String subtitle;
-  final String svgPath;
+  final String path;
 
   const OnboardingPageView({
     super.key,
     required this.page,
     required this.title,
     required this.subtitle,
-    required this.svgPath,
+    required this.path,
   });
 
   @override
@@ -46,11 +46,9 @@ class OnboardingPageView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    svgPath,
-                    width: 375,
-                    height: 451,
-                  ),
+                  page == 2 
+                    ? Image.asset(path,width : 375 ,height:451)
+                    : SvgPicture.asset(path,width: 375,height: 451,),
                   const SizedBox(height: 20),
                   Text(
                     title,

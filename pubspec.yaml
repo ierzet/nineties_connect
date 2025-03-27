@@ -22,6 +22,7 @@ dependencies:
   intl: ^0.20.2
   meta: ^1.8.0
   image_picker: ^1.1.2
+  flutter_image: ^4.1.12
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +34,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/qr_code.jpg
+
     - assets/svgs/
     - assets/svgs/LOGO 90S.svg
     - assets/svgs/booking.svg
@@ -40,3 +42,6 @@ flutter:
     - assets/svgs/outlet.svg
     - assets/svgs/maintenance.svg
     - assets/images/qr_code.jpg
+    - assets/svgs/90s_apps.svg
+    - assets/svgs/jadi_mudah.svg
+    - assets/lotties/

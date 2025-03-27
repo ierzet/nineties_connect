@@ -4,6 +4,10 @@ GoRouter createRouter() {
   return GoRouter(
     initialLocation: '/onboarding',
     routes: [
+      // GoRoute(
+      //   path: '/',
+      //   builder: (context, state) => WelcomeScreen(),
+      // ),
       GoRoute(
         path: '/onboarding',
         builder: (context, state) => const OnBoardingPage(),
@@ -39,7 +43,13 @@ GoRouter createRouter() {
         path: '/profile',
         builder: (context, state) => const ProfileScreen(),
       ),
-
+      GoRoute(
+        path: '/personal-info',
+        builder: (context, state) => BlocProvider(
+          create: (context) => PersonalInfoCubit(),
+          child:  PersonalInfoScreen(),
+        ),
+      ),
       GoRoute(path: '/faq', builder: (context, state) => const FAQScreen()),
       GoRoute(
         path: '/payment',
