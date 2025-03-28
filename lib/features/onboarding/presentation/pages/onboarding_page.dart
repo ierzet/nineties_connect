@@ -28,13 +28,13 @@ class OnBoardingPage extends StatelessWidget {
                 title: 'Selamat Datang di\n 90s Super App',
                 subtitle:
                     'Rasakan kemudahan merawat\n kendaraan dalam satu genggaman',
-                path: 'assets/svgs/on_boarding_page_1.svg',
+                 path: 'assets/lotties/logogram.gif',
               ),
               OnboardingPageView(
                 page: 1,
                 title: 'Cuci Sepuasnya\n dengan Membership',
                 subtitle: 'Daftrakan kendaraanmu agar selalu\n terlindungi',
-                path: 'assets/svgs/on_boarding_page_2.svg',
+                 path: 'assets/lotties/allucanwash.gif',
               ),
               OnboardingPageView(
                 page: 2,

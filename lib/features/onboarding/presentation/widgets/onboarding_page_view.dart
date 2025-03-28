@@ -46,9 +46,9 @@ class OnboardingPageView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  page == 2 
-                    ? Image.asset(path,width : 375 ,height:451)
-                    : SvgPicture.asset(path,width: 375,height: 451,),
+                  path.endsWith('.svg')
+                    ? SvgPicture.asset(path, width: 375, height: 451)
+                    : Image.asset(path, width: 375, height: 451),
                   const SizedBox(height: 20),
                   Text(
                     title,
